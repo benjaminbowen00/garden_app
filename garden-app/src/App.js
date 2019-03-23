@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import "bootstrap/dist/css/bootstrap.min.css";
 
 import {BrowserRouter as Router, Route, Link} from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
 
 
@@ -19,7 +19,7 @@ class App extends Component {
 
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <a className="navbar-brand" href='/'>
-        <img src={sunflower} width="40" height="40" alt="Company logo" />
+        <img src={sunflower} width="40" height="40" alt="sunflower" />
         </a>
         <Link to="/" className="navbar-brand">Jessie's Garden</Link>
         <div className="collapse navbar-collapse">
@@ -31,6 +31,13 @@ class App extends Component {
             <Link to="/create" className="nav-link">View the latest plants</Link>
             </li>
             </ul>
+
+            <form className="form-inline my-2 my-lg-0">
+            <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+            <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+
+
             </div>
       </nav>
 
