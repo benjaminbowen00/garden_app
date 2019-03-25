@@ -8,6 +8,7 @@ import './App.css';
 import Garden from "./components/garden.component.js";
 import EditPlant from "./components/edit-plant.component.js";
 import CreatePlant from "./components/create-plant.component.js";
+import Square from "./components/grid-square.component.js";
 
 import sunflower from "./images/sunflower.png"
 
@@ -45,6 +46,7 @@ class App extends Component {
         <Route path="/" exact component={Garden} />
         <Route path="/edit/:id" component={EditPlant} />
         <Route path="/create" component={CreatePlant} />
+        <Route path="/square/:id" component={Square} />
       </div>
       </Router>
     );

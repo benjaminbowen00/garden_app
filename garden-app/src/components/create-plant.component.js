@@ -14,6 +14,7 @@ export default class CreatePlant extends Component{
     this.onChangePlantingDate = this.onChangePlantingDate.bind(this);
     this.onChangeFloweringDate = this.onChangeFloweringDate.bind(this);
     this.onChangePlantDescription = this.onChangePlantDescription.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
       plant_name: '',
