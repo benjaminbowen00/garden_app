@@ -45,8 +45,8 @@ class App extends Component {
 
         <Route path="/" exact component={Garden} />
         <Route path="/edit/:id" component={EditPlant} />
-        <Route path="/create" component={CreatePlant} />
-        <Route path="/square/:id" component={Square} />
+        <Route path="/square/:id/create" component={CreatePlant} />
+        <Route path="/square/:id" exact component={Square} />
       </div>
       </Router>
     );

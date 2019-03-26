@@ -9,7 +9,10 @@ export default class Garden extends Component{
               <div className="grid-container">
                 {Array.from({length: 16}, (v, k) => {
                   return <div className="grid-item" key={k+1}>
-                    <a href={"/square/"+(k+1).toString()}>{(k+1)}</a>
+                    <a href={"/square/"+(k+1).toString()}>View plants</a>
+                    <br />
+                    <a href={"/square/"+(k+1).toString()+"/create"}>Add</a>
+
                   </div>
                 })}
               </div>

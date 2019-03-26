@@ -42,9 +42,9 @@ export default class CreatePlant extends Component{
       plant_planting_date: date
     });
   }
-  onChangeFloweringDate(e){
+  onChangeFloweringDate(date){
     this.setState({
-      plant_flowering_date: e.target.value
+      plant_flowering_date: date
     });
   }
   onChangePlantDescription(e){
@@ -65,6 +65,8 @@ export default class CreatePlant extends Component{
       plant_flowering_date: '',
       plant_description: ''
     })
+
+    this.props.history.push('/square/'+this.props.match.params.id);
   }
   render(){
     return(
@@ -94,17 +96,38 @@ export default class CreatePlant extends Component{
                     onChange={this.onChangePlantNumber}/>
           </div>
 
-          <div>
+          <div className="form-group">
+          <label>Planting date</label>
           <DatePicker
+          className='input-group date'
           value={this.state.plant_planting_date}
           onChange={this.onChangePlantingDate}
           />
           </div>
 
+          <div className="form-group">
+          <label>Flowering date</label>
+          <DatePicker
+          className='input-group date'
+          value={this.state.plant_flowering_date}
+          onChange={this.onChangeFloweringDate}
+          />
+          </div>
 
           <div className="form-group">
-              <input type="submit" value="Create Todo" className="btn btn-primary" />
+            <label>Comments:</label>
+
+            <input  type="text"
+                    className='form-control'
+                    value={this.state.plant_description}
+                    onChange={this.onChangePlantDescription}/>
           </div>
+
+
+          <div className="form-group">
+              <input type="submit" value="Save plant" className="btn btn-primary" />
+          </div>
+
         </form>
       </div>
     )
