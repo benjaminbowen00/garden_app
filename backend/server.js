@@ -45,7 +45,21 @@ plantRoutes.route('/:id').get(function(req, res){
   });
 });
 
-plantRoutes.route('/create').post(function(req, res){
+plantRoutes.route('/square/:id').get(function(req, res){
+  let id = req.params.id;
+
+
+  Plant.find({square: id},function(err, plants){
+    if(err){
+      console.log(err);
+    }
+    else{
+      res.json(plants)
+    }
+  });
+});
+
+plantRoutes.route('/square/:id/create').post(function(req, res){
   let id = req.params.id;
   let plant = new Plant(req.body);
   plant.save()

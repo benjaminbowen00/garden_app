@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-//import DatePicker from "react-datepicker";
+import axios from 'axios';
 import DatePicker from 'react-date-picker';
 
 
@@ -58,6 +58,19 @@ export default class CreatePlant extends Component{
     //onsubmit logic
     console.log('Form submitted');
     console.log(`plant: ${this.state.plant_name}`);
+
+    const newPlant = {
+      square: this.props.match.params.id,
+      plant_name: this.state.plant_name,
+      plant_number: this.state.plant_number,
+      plant_planting_date: this.state.plant_planting_date,
+      plant_flowering_date: this.state.plant_flowering_date,
+      plant_description: this.state.plant_description
+    }
+
+    axios.post('http://localhost:4000/plants/square/'+this.props.match.params.id+'/create', newPlant)
+      .then(res => console.log(res.data));
+
     this.setState({
       plant_name: '',
       plant_number: '',
