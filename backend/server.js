@@ -71,28 +71,28 @@ plantRoutes.route('/square/:id/create').post(function(req, res){
         });
 });
 
-plantRoutes.route('update/:id').post(function(req, res){
+plantRoutes.route('/update/:id').post(function(req, res){
   Plant.findById(req.params.id, function(err, plant){
     if(!plant){
-      res.status(404).send('data is not found!');
+      res.status(404).send('data is not found');
     }
     else{
+      plant.square = req.body.square;
       plant.plant_name = req.body.plant_name;
       plant.plant_number = req.body.plant_number;
       plant.plant_planting_date = req.body.plant_planting_date;
       plant.plant_flowering_date = req.body.plant_flowering_date;
       plant.plant_description = req.body.plant_description;
 
-      plant.save.then(plant =>{
-        res.json('plant updated')
+      plant.save().then(plant => {
+        res.json('Plant updated');
       })
       .catch(err => {
-        res.status(400).send("update not possible");
+        res.status(400).send("Update not possible");
       });
     }
   });
 });
-
 
 app.use('/plants', plantRoutes);
 
