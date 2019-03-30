@@ -4,6 +4,24 @@ import Modal from 'react-bootstrap/Modal'
 
 
 export default class MyVerticallyCenteredModal extends Component {
+  constructor(props){
+    super(props)
+    this.modalToggle = this.modalToggle.bind(this);
+
+  this.state = {
+  modalOpened: false
+  }
+  }
+
+
+
+
+  modalToggle(){
+    this.setState({
+      modalOpened: !this.state.modalOpened
+    });
+  }
+
   render() {
     return (
       <Modal
@@ -19,6 +37,7 @@ export default class MyVerticallyCenteredModal extends Component {
         </Modal.Header>
         <Modal.Body>
           <h4>Centered Modal</h4>
+          <p>{this.props.hello}</p>
           <p>
             Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
             dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
