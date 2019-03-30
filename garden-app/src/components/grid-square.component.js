@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import MyVerticallyCenteredModal from "./plant-details-modal.component.js";
 
 const Plant = props => (
   <tr>
@@ -20,8 +21,13 @@ const Plant = props => (
 export default class Square extends Component{
 
   constructor(props){
+
+
   super(props);
-  this.state = {plants: []};
+  this.modalClose= this.modalClose.bind(this);
+  this.state = {plants: [],
+                modalShow: false
+                };
   this._isMounted = false;
 
 }
@@ -56,7 +62,9 @@ componentDidUpdate(prevProps, prevState) {
      })
  }
 
+
 }
+
 
   plantList(){
   return this.state.plants.map(function(currentPlant, i){
@@ -64,6 +72,11 @@ componentDidUpdate(prevProps, prevState) {
   })
 }
 
+modalClose(){
+  this.setState({
+    modalShow: false
+  })
+}
 
 render(){
   return (
@@ -84,6 +97,18 @@ render(){
             {this.plantList()}
           </tbody>
         </table>
+
+        <button
+        variant="primary"
+          onClick={() => this.setState({ modalShow: true })}>
+          Launch vertically centered modal
+          </button>
+
+          <MyVerticallyCenteredModal
+          show={this.state.modalShow}
+          onHide={this.modalClose}
+          />
+
       </div>
     )
   }
