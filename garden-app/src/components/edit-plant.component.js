@@ -82,7 +82,7 @@ export default class EditPlant extends Component{
     axios.post('http://localhost:4000/plants/update/'+this.props.match.params.id, obj)
       .then(res => console.log(res.data));
 
-    this.props.history.push('/square'+this.state.square.toString());
+    this.props.history.push('/square/'+this.state.square.toString());
   }
 
   deleteTodo(e){

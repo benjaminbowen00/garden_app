@@ -42,17 +42,20 @@ componentWillUnmount(){
      this._isMounted = false;
 }
 
-componentDidUpdate(){
-  axios.get('http://localhost:4000/plants/square/'+this.props.match.params.id)
-    .then(response => {
-      if(this._isMounted)
-      {
-      this.setState({plants: response.data});
-      }
-      })
-    .catch(function(err){
-        console.log(err);
-    })
+componentDidUpdate(prevProps, prevState) {
+ if(JSON.stringify(prevState) !== JSON.stringify(this.state)) {
+   axios.get('http://localhost:4000/plants/square/'+this.props.match.params.id)
+     .then(response => {
+       if(this._isMounted)
+       {
+       this.setState({plants: response.data});
+       }
+       })
+     .catch(function(err){
+         console.log(err);
+     })
+ }
+
 }
 
   plantList(){
