@@ -34,7 +34,11 @@ render(){
       <MyVerticallyCenteredModal
         show={this.state.modalShow}
         onHide={this.modalClose2}
-        hello = {this.props.plant.plant_name}
+        plant_name = {this.props.plant.plant_name}
+        plant_number = {this.props.plant.plant_number}
+        plant_planting_date = {this.props.plant.plant_planting_date}
+        plant_flowering_date = {this.props.plant.plant_flowering_date}
+        plant_description = {this.props.plant.plant_description}
       />
       </td>
 

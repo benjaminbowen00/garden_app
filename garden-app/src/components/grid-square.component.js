@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+//import {Link} from 'react-router-dom';
 import axios from 'axios';
-import MyVerticallyCenteredModal from "./plant-details-modal.component.js";
+//import MyVerticallyCenteredModal from "./plant-details-modal.component.js";
 import Plant from './plant-row.component.js';
 
 // const Plant = props => (

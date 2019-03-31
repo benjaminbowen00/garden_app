@@ -22,8 +22,16 @@ export default class MyVerticallyCenteredModal extends Component {
     });
   }
 
+  plantingToFlowering(date1, date2){
+
+  var diff =(date2 - date1) / 1000;
+  diff /= (60 * 60 * 24 * 7);
+  return Math.round(diff);
+}
+
   render() {
     return (
+
       <Modal
         {...this.props}
         size="lg"
@@ -32,7 +40,7 @@ export default class MyVerticallyCenteredModal extends Component {
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-            Modal heading
+            {this.props.plant_name}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -43,6 +51,36 @@ export default class MyVerticallyCenteredModal extends Component {
             dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
             ac consectetur ac, vestibulum at eros.
           </p>
+          <table>
+          <thead>
+          </thead>
+          <tbody className="table">
+              <tr>
+                  <th>Plant name</th>
+                  <td>{this.props.plant_name}</td>
+              </tr>
+              <tr>
+                  <th>Plant number</th>
+                  <td>{this.props.plant_number}</td>
+              </tr>
+              <tr>
+                  <th>Planting date</th>
+                  <td>{new Date(this.props.plant_planting_date).toLocaleDateString('en-GB')}</td>
+              </tr>
+              <tr>
+                  <th>Flowering date</th>
+                  <td>{new Date(this.props.plant_flowering_date).toLocaleDateString('en-GB')}</td>
+              </tr>
+              <tr>
+                  <th>Planting to flowering:</th>
+                  <td>{this.plantingToFlowering(new Date(this.props.plant_planting_date),new Date(this.props.plant_flowering_date))} weeks</td>
+              </tr>
+              <tr>
+                  <th>Description</th>
+                  <td>{this.props.plant_description}</td>
+              </tr>
+          </tbody>
+      </table>
         </Modal.Body>
         <Modal.Footer>
           <button onClick={this.props.onHide}>Close</button>
