@@ -44,21 +44,14 @@ export default class MyVerticallyCenteredModal extends Component {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h4>Centered Modal</h4>
-          <p>{this.props.hello}</p>
-          <p>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
-            ac consectetur ac, vestibulum at eros.
-          </p>
+          
+
+
           <table>
           <thead>
           </thead>
           <tbody className="table">
-              <tr>
-                  <th>Plant name</th>
-                  <td>{this.props.plant_name}</td>
-              </tr>
+
               <tr>
                   <th>Plant number</th>
                   <td>{this.props.plant_number}</td>

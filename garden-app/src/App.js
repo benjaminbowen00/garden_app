@@ -9,10 +9,14 @@ import Garden from "./components/garden.component.js";
 import EditPlant from "./components/edit-plant.component.js";
 import CreatePlant from "./components/create-plant.component.js";
 import Square from "./components/grid-square.component.js";
+import SearchResults from "./components/search-results.component.js";
 
 import sunflower from "./images/sunflower.png"
 
 class App extends Component {
+
+
+
   render() {
     return (
       <Router>
@@ -26,17 +30,22 @@ class App extends Component {
         <div className="collapse navbar-collapse">
           <ul className="navbar-nav mr-auto">
             <li className="navbar-item">
-      <Link to="/" className="nav-link">All plants</Link>
+            <Link to="/" className="nav-link">All plants</Link>
             </li>
             <li className="navbar-item">
             <Link to="/create" className="nav-link">View the latest plants</Link>
             </li>
+            <li className="navbar-item">
+            <Link to="/search" className="nav-link">Search plants</Link>
+            </li>
             </ul>
 
             <form className="form-inline my-2 my-lg-0">
-            <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-            <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"/>
+
+            <button className="btn btn-outline-success my-2 my-sm-0" type="submit" href="/square/1">Search</button>
             </form>
+
 
 
             </div>
@@ -47,6 +56,7 @@ class App extends Component {
         <Route path="/edit/:id" component={EditPlant} />
         <Route path="/square/:id/create" component={CreatePlant} />
         <Route path="/square/:id" exact component={Square} />
+        <Route path="/search" component={SearchResults} />
       </div>
       </Router>
     );

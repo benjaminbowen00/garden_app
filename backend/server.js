@@ -59,6 +59,20 @@ plantRoutes.route('/square/:id').get(function(req, res){
   });
 });
 
+plantRoutes.route('/search/:word').get(function(req, res){
+  let word = req.params.word;
+
+
+  Plant.find({plant_name: word},function(err, plants){
+    if(err){
+      console.log(err);
+    }
+    else{
+      res.json(plants)
+    }
+  });
+});
+
 plantRoutes.route('/square/:id/create').post(function(req, res){
   let id = req.params.id;
   let plant = new Plant(req.body);
